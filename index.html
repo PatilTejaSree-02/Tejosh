@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santosh Weds Teja Sree - Wedding Invitation</title>
+
+  <!-- Open Graph Tags for WhatsApp Preview -->
+  <meta property="og:title" content="Santosh Weds Teja Sree (#Tejosh)" />
+  <meta property="og:description" content="Peketi family cordially invites you to the wedding celebrations of Santosh & Teja Sree." />
+  <meta property="og:image" content="couple.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Vibrant Telugu Festive Palette */
+      --bg-outside: #0F0A0A;
+      --bg-main: #FFFDF5; /* Bright warm cream */
+      --maroon: #C62828; /* Vibrant crimson/kumkum */
+      --maroon-gradient: linear-gradient(135deg, #D32F2F, #B71C1C);
+      --gold: #FFB300; /* Bright amber/haldi */
+      --gold-light: #FFECB3;
+      --text-dark: #3E2723;
+      --text-muted: #6D4C41;
+      --card-bg: #FFFFFF;
+      --card-border: #FFE082;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-outside);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer; /* Indicates the whole page is clickable for music */
+    }
+
+    /* Main App Container */
+    .app-container {
+      background-color: var(--bg-main);
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 20px;
+      position: relative;
+      border: 6px solid var(--maroon);
+      outline: 3px solid var(--gold);
+      outline-offset: -9px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+
+    /* Falling Stars Animation Overlay */
+    .falling-stars {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; /* Allows clicking through the stars */
+      overflow: hidden;
+      z-index: 50;
+    }
+    .star {
+      position: absolute;
+      top: -10%;
+      color: var(--gold);
+      text-shadow: 0 0 8px rgba(255, 179, 0, 0.9), 0 0 15px rgba(255, 179, 0, 0.5);
+      animation: fall-twinkle linear infinite;
+    }
+    @keyframes fall-twinkle {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 0.3; }
+      50% { opacity: 1; }
+      70% { opacity: 0.3; }
+      90% { opacity: 0.9; }
+      100% { transform: translateY(110vh) rotate(180deg); opacity: 0; }
+    }
+
+    /* Traditional Garland Decoration at Top */
+    .top-garland {
+      width: 100%;
+      height: 45px;
+      background: var(--maroon-gradient);
+      border-bottom: 3px solid var(--gold);
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding-top: 5px;
+      z-index: 10;
+    }
+    .top-garland::after {
+      content: "🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️ 🌿 🏵️";
+      letter-spacing: 15px;
+      font-size: 20px;
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      opacity: 1;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+
+    /* --- TOP MANTRA --- */
+    .top-mantra-container {
+      width: 100%;
+      text-align: center;
+      padding-top: 30px;
+      position: relative;
+      z-index: 10;
+    }
+    .top-mantra {
+      font-size: 12px; 
+      letter-spacing: 0.3em; 
+      color: var(--gold); 
+      font-weight: 700; 
+      background: var(--maroon); 
+      padding: 8px 20px; 
+      border-radius: 20px; 
+      display: inline-block; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Layout: Split for Desktop */
+    .split-layout {
+      display: flex;
+      align-items: flex-start;
+      padding: 30px 30px 20px;
+      gap: 30px;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* --- LEFT COLUMN: Sticky Photo --- */
+    .left-col {
+      width: 45%;
+      position: sticky;
+      top: 30px;
+      height: calc(100vh - 60px);
+      min-height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 4px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(198, 40, 40, 0.2);
+    }
+    .left-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .left-overlay {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%;
+      padding: 100px 20px 40px;
+      background: linear-gradient(to top, rgba(10,0,0,0.95) 0%, rgba(10,0,0,0.7) 50%, transparent 100%);
+      text-align: center;
+      color: #fff;
+    }
+    .left-overlay h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 15px;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .left-overlay h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem); /* Dynamically sizes to fit */
+      white-space: nowrap; /* Forces text to stay on one line */
+      font-weight: 700;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .left-overlay .heart {
+      color: #FF1744;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      display: inline-block;
+      margin: 0 5px;
+      filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.6));
+    }
+
+    /* --- RIGHT COLUMN: Scrolling Information --- */
+    .right-col {
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding-bottom: 20px;
+    }
+
+    /* Ganesh Image Styling */
+    .ganesh-container {
+      text-align: center;
+      margin-bottom: -10px;
+    }
+    .ganesh-icon {
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+
+    /* Card Master Style */
+    .info-card {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px 25px;
+      box-shadow: 0 6px 15px rgba(255, 179, 0, 0.08);
+      position: relative;
+    }
+    .info-card::before, .info-card::after {
+      content: "✨";
+      position: absolute;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+    .info-card::before { top: 15px; left: 15px; }
+    .info-card::after { bottom: 15px; right: 15px; }
+
+    /* Map Theme for Venue Cards */
+    .map-theme {
+      background-color: var(--bg-main);
+      background-image: radial-gradient(var(--gold-light) 2px, transparent 2px);
+      background-size: 20px 20px;
+      border: 2px dashed var(--gold);
+    }
+
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--maroon);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title.center { justify-content: center; text-align: center; }
+
+    /* 1. Cordial Invitation */
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      text-align: center;
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    /* 2. Muhurtham Card */
+    .date-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .date-left { font-family: 'Cormorant Garamond', serif; }
+    .date-left h2 { font-size: 2.4rem; color: var(--text-dark); line-height: 1.1; font-weight: 600;}
+    .date-left p { font-size: 1.4rem; color: var(--maroon); font-weight: 700; margin-top: 8px;}
+    .date-left span { font-family: 'Poppins', sans-serif; font-size: 0.85rem; color: #2E7D32; font-style: italic; font-weight: 600;}
+
+    .countdown-row { display: flex; gap: 8px; }
+    .cd-box {
+      background: var(--bg-main);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      width: 58px; height: 65px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .cd-box b { font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; color: var(--maroon); line-height: 1; font-weight: 700;}
+    .cd-box.sec b { color: #E65100; }
+    .cd-box small { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; font-weight: 600;}
+
+    /* Location Cards General */
+    .location-wrapper { text-align: center; background: rgba(255, 255, 255, 0.85); padding: 15px; border-radius: 12px; }
+    .loc-icon { font-size: 32px; color: var(--maroon); margin-bottom: 5px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+    .location-wrapper h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--maroon); font-weight: 700;}
+    .location-wrapper p.venue-sub { font-size: 1rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 600;}
+    .location-wrapper p.venue-date { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-bottom: 20px;}
+    
+    .btn-outline {
+      display: block; width: 100%; padding: 12px;
+      background: var(--card-bg); border: 2px solid var(--maroon); color: var(--maroon);
+      text-align: center; border-radius: 8px; font-weight: 600; font-size: 13px;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { background: var(--maroon); color: #fff; }
+
+    /* Gallery */
+    .gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;}
+    .gallery-count { font-size: 10px; background: #FFF8E1; color: #FF8F00; padding: 5px 12px; border-radius: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 1px solid #FFE082;}
+    .gallery-scroll {
+      display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;
+      scrollbar-width: thin; scrollbar-color: var(--gold) transparent;
+      -webkit-overflow-scrolling: touch; 
+    }
+    .gallery-scroll::-webkit-scrollbar { height: 8px; }
+    .gallery-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+    .gal-item { flex: 0 0 110px; text-align: center; }
+    .gal-item img { 
+      width: 110px; height: 140px; object-fit: cover; 
+      border-radius: 12px; border: 2px solid var(--gold-light); 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .gal-item img:hover { transform: scale(1.05); border-color: var(--gold); }
+    .gal-item p { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; color: var(--maroon); font-weight: 700; }
+
+    /* Contacts */
+    .contact-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 0; border-bottom: 1px dashed #DECC9C;
+    }
+    .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .contact-name { font-weight: 700; color: var(--text-dark); font-size: 15px;}
+    .contact-icons a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg-main); border: 2px solid var(--gold-light);
+      color: var(--maroon); margin-left: 10px; font-size: 16px; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-icons a:hover { background: var(--maroon); color: white; border-color: var(--maroon); }
+
+    /* Footer Hashtag */
+    .footer-section {
+      width: 100%;
+      text-align: center; 
+      padding: 10px 20px 40px;
+      clear: both;
+    }
+    .hashtag {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: var(--maroon);
+      margin-bottom: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Music Hint Tooltip */
+    .music-hint {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: rgba(198, 40, 40, 0.9); color: #fff; padding: 10px 20px;
+      border-radius: 30px; font-size: 12px; font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: opacity 0.5s ease; pointer-events: none;
+    }
+
+    /* --- LIGHTBOX (FULLSCREEN IMAGE) --- */
+    .modal {
+      display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+      width: 100%; height: 100%; overflow: auto;
+      background-color: rgba(0,0,0,0.9); opacity: 0; transition: opacity 0.3s ease;
+    }
+    .modal.show { display: flex; justify-content: center; align-items: center; opacity: 1; }
+    .modal-content {
+      margin: auto; display: block; max-width: 90%; max-height: 85vh;
+      border-radius: 12px; border: 3px solid var(--gold);
+      box-shadow: 0 0 30px rgba(255, 179, 0, 0.3);
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn { from {transform:scale(0.8)} to {transform:scale(1)} }
+    .close-modal {
+      position: absolute; top: 20px; right: 35px; color: #f1f1f1;
+      font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+    .close-modal:hover { color: var(--gold); }
+
+    /* --- MOBILE RESPONSIVE --- */
+    @media (max-width: 850px) {
+      body { padding: 10px; } 
+      
+      .app-container { border-width: 4px; outline-width: 2px; outline-offset: -6px; }
+
+      .top-mantra { font-size: 10px; padding: 6px 15px; }
+
+      .split-layout { flex-direction: column; padding: 20px 15px 15px; gap: 20px; }
+      
+      .left-col { 
+        width: 100%; position: relative; top: 0; height: auto; 
+        aspect-ratio: 3/4; min-height: auto; border-width: 3px;
+      }
+      .left-overlay { padding: 60px 15px 25px; }
+      .left-overlay h1 { font-size: min(7vw, 2.5rem); }
+      .left-overlay h3 { font-size: 11px; margin-bottom: 8px;}
+      .left-overlay .heart { font-size: min(5vw, 1.8rem); }
+
+      .right-col { width: 100%; gap: 15px; }
+      .info-card { padding: 25px 20px; }
+
+      .date-row { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+      .cd-box { width: 55px; height: 60px; }
+      
+      .hashtag { font-size: 3rem; }
+      .footer-section { padding: 10px 10px 30px; }
+
+      .close-modal { top: 10px; right: 15px; font-size: 35px; }
+    }
+
+    @media (max-width: 400px) {
+      .cd-box { width: 48px; height: 55px; }
+      .cd-box b { font-size: 1.4rem; }
+      .info-card { padding: 20px 15px; }
+      .loc-icon { font-size: 26px; }
+      .location-wrapper h3 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="wedding-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Music Hint -->
+  <div class="music-hint" id="musicHint">Tap anywhere to play music 🎵</div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="fullImage">
+  </div>
+
+  <div class="app-container">
+    <!-- Top Garland Decoration -->
+    <div class="top-garland"></div>
+
+    <!-- Top Mantra Centered -->
+    <div class="top-mantra-container">
+      <div class="top-mantra">
+        🌸 SRI RASTU • SHUBHAMASTU • AVIGNAMASTU 🌸
+      </div>
+    </div>
+
+    <!-- Falling Stars Animation Overlay -->
+    <div class="falling-stars">
+      <div class="star" style="left: 10%; font-size: 18px; animation-duration: 12s; animation-delay: 0s;">✦</div>
+      <div class="star" style="left: 25%; font-size: 24px; animation-duration: 15s; animation-delay: 2s;">✨</div>
+      <div class="star" style="left: 45%; font-size: 14px; animation-duration: 10s; animation-delay: 4s;">⋆</div>
+      <div class="star" style="left: 65%; font-size: 20px; animation-duration: 14s; animation-delay: 1s;">✦</div>
+      <div class="star" style="left: 85%; font-size: 16px; animation-duration: 11s; animation-delay: 3s;">✨</div>
+      <div class="star" style="left: 55%; font-size: 22px; animation-duration: 16s; animation-delay: 5s;">⋆</div>
+      <div class="star" style="left: 35%; font-size: 15px; animation-duration: 13s; animation-delay: 6s;">✦</div>
+      <div class="star" style="left: 75%; font-size: 19px; animation-duration: 17s; animation-delay: 7s;">✨</div>
+      <div class="star" style="left: 15%; font-size: 20px; animation-duration: 14s; animation-delay: 8s;">⋆</div>
+      <div class="star" style="left: 90%; font-size: 22px; animation-duration: 12s; animation-delay: 9s;">✦</div>
+    </div>
+
+    <div class="split-layout">
+      
+      <!-- LEFT COLUMN: Sticky Photo (Uses couple.jpg) -->
+      <div class="left-col">
+        <img src="couple.jpg" alt="Santosh and Teja Sree">
+        <div class="left-overlay">
+          <h3>The Wedding Celebration Of</h3>
+          <!-- Name perfectly forced to one line and mobile responsive -->
+          <h1>Santosh <span class="heart">❤️</span> Teja Sree</h1>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Scrolling Information -->
+      <div class="right-col">
+        
+        <!-- Ganesh Image -->
+        <div class="ganesh-container">
+          <img src="ganesh.png" alt="Lord Ganesha" class="ganesh-icon" onerror="this.style.display='none'">
+        </div>
+
+        <!-- 1. Cordial Invitation -->
+        <div class="info-card">
+          <div class="card-title center">A Cordial Invitation</div>
+          <p class="quote-text">
+            "We cordially invite you along with your family and friends to grace the auspicious occasion of our wedding ceremony and shower your warm blessings upon us."
+          </p>
+        </div>
+
+        <!-- 2. Pelli Muhurtham -->
+        <div class="info-card">
+          <div class="card-title">🌸 Pelli Muhurtham</div>
+          <div class="date-row">
+            <div class="date-left">
+              <h2>Sunday,<br>23 August<br>2026</h2>
+              <p>11:23 AM <br><span>Lunch Follows</span></p>
+            </div>
+            <div class="countdown-row">
+              <div class="cd-box"><b id="tDays">00</b><small>Days</small></div>
+              <div class="cd-box"><b id="tHrs">00</b><small>Hrs</small></div>
+              <div class="cd-box"><b id="tMin">00</b><small>Min</small></div>
+              <div class="cd-box sec"><b id="tSec">00</b><small>Sec</small></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Wedding Venue (Map Theme) -->
+        <div class="info-card map-theme">
+          <div class="card-title">🌸 Wedding Venue</div>
+          <div class="location-wrapper">
+            <div class="loc-icon">📍</div>
+            <h3>PI Gardens</h3>
+            <p class="venue-sub">Cheryala, Nagaram, Hyderabad</p>
+            <p class="venue-date">23 Aug 2026</p>
+            <a href="https://www.google.com/maps/search/PI+Gardens+Cheryala+Nagaram+Hyderabad" target="_blank" class="btn-outline">
+              🧭 Get Directions
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Reception Venue (Map Theme) -->
+        <div class="info-card map-theme">
+          <div class="card-title">🌸 Reception Venue</div>
+          <div class="location-wrapper">
+            <div class="loc-icon">📍</div>
+            <h3>Kondaveedu Academy Kalyanamandapam</h3>
+            <p class="venue-sub">Bhavanipuram, Vijayawada</p>
+            <p class="venue-date">25 Aug 2026, 7:00 PM</p>
+            <a href="https://www.google.com/maps/search/Kondaveedu+Academy+Kalyanamandapam+Bhavanipuram+Vijayawada" target="_blank" class="btn-outline">
+              🧭 Get Directions
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Gallery -->
+        <div class="info-card">
+          <div class="gallery-header">
+            <div class="card-title" style="margin:0;">🌸 Gallery</div>
+            <div class="gallery-count">5 Photos</div>
+          </div>
+          <div class="gallery-scroll">
+            <div class="gal-item">
+              <img src="groom.jpg" alt="Santosh">
+              <p>Santosh</p>
+            </div>
+            <div class="gal-item">
+              <img src="bride.jpg" alt="Teja Sree">
+              <p>Teja Sree</p>
+            </div>
+            <div class="gal-item">
+              <!-- Uses a different image file specifically for the gallery -->
+              <img src="together.jpg" alt="Together">
+              <p>Together</p>
+            </div>
+            <div class="gal-item">
+              <img src="groom-parents.jpg" alt="Santosh Family">
+              <p>Santosh Family</p>
+            </div>
+            <div class="gal-item">
+              <img src="bride-parents.jpg" alt="Teja Sree Family">
+              <p>Teja Sree Family</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Contact Section -->
+        <div class="info-card">
+          <div class="card-title">🌸 Contact</div>
+          <div class="contact-row">
+            <div class="contact-name">Ganga Prasad</div>
+            <div class="contact-icons">
+              <a href="tel:+919985246241">📞</a>
+              <a href="https://wa.me/919985246241" target="_blank">💬</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-name">Rajasekhar</div>
+            <div class="contact-icons">
+              <a href="tel:+919966410041">📞</a>
+              <a href="https://wa.me/919966410041" target="_blank">💬</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-name">Santosh</div>
+            <div class="contact-icons">
+              <a href="tel:+919133616437">📞</a>
+              <a href="https://wa.me/919133616437" target="_blank">💬</a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End Right Col -->
+    </div> <!-- End Split Layout -->
+
+    <!-- Footer Area (Perfectly Centered Hashtag at the bottom) -->
+    <div class="footer-section">
+      <div class="hashtag">#Tejosh</div>
+    </div>
+
+  </div> <!-- End App Container -->
+
+  <script>
+    // --- COUNTDOWN LOGIC ---
+    const countDownDate = new Date("August 23, 2026 11:23:00").getTime();
+    
+    const daysEl = document.getElementById('tDays');
+    const hoursEl = document.getElementById('tHrs');
+    const minsEl = document.getElementById('tMin');
+    const secsEl = document.getElementById('tSec');
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        daysEl.textContent = "00"; hoursEl.textContent = "00";
+        minsEl.textContent = "00"; secsEl.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minsEl.textContent = String(minutes).padStart(2, '0');
+      secsEl.textContent = String(seconds).padStart(2, '0');
+    };
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // --- LIGHTBOX (FULLSCREEN IMAGE) LOGIC ---
+    const modal = document.getElementById("imageModal");
+    const fullImage = document.getElementById("fullImage");
+    const closeModal = document.querySelector(".close-modal");
+    const galleryImages = document.querySelectorAll(".gal-item img");
+
+    // Open Modal
+    galleryImages.forEach(img => {
+      img.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevents the background music click from triggering
+        modal.style.display = "flex";
+        setTimeout(() => modal.classList.add("show"), 10);
+        fullImage.src = e.target.src;
+      });
+    });
+
+    // Close Modal Function
+    const hideModal = (e) => {
+      e.stopPropagation();
+      modal.classList.remove("show");
+      setTimeout(() => modal.style.display = "none", 300);
+    };
+
+    closeModal.addEventListener("click", hideModal);
+    
+    // Close if clicked outside the image
+    modal.addEventListener("click", (e) => {
+      if (e.target !== fullImage) {
+        hideModal(e);
+      }
+    });
+
+    // --- GLOBAL AUDIO PLAYER LOGIC ---
+    const audio = document.getElementById("bgMusic");
+    const hint = document.getElementById("musicHint");
+    let isPlaying = false;
+    let hintTimeout;
+
+    document.body.addEventListener("click", (e) => {
+      // Don't toggle music if the user is clicking a link, a gallery image, or inside the modal
+      if (e.target.closest('a') || e.target.closest('.gal-item img') || e.target.closest('#imageModal') || e.target.closest('.close-modal')) return;
+
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        hint.textContent = "Tap anywhere to play music 🔇";
+        hint.style.opacity = "1";
+        clearTimeout(hintTimeout); // Keep hint visible while paused
+      } else {
+        audio.play().catch(error => console.log("Audio play failed."));
+        isPlaying = true;
+        hint.textContent = "Music playing. Tap to pause 🔊";
+        hint.style.opacity = "1";
+        
+        // Automatically hide the hint after 3 seconds so it's not distracting
+        clearTimeout(hintTimeout);
+        hintTimeout = setTimeout(() => {
+          hint.style.opacity = "0";
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
